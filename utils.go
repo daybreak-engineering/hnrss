@@ -12,7 +12,6 @@ import (
 const (
 	NSDublinCore = "http://purl.org/dc/elements/1.1/"
 	NSAtom       = "http://www.w3.org/2005/Atom"
-	SiteURL      = "https://hnrss.org"
 )
 
 type CDATA struct {
@@ -63,7 +62,7 @@ func ParseRequest(c *gin.Context, sp *SearchParams, op *OutputParams) {
 	}
 
 	op.Format = c.GetString("format")
-	op.SelfLink = SiteURL + c.Request.URL.String()
+	op.SelfLink = *siteURL + c.Request.URL.String()
 }
 
 func Generate(c *gin.Context, sp *SearchParams, op *OutputParams) {
